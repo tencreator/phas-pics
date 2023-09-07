@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phasmo Pic Elements</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        .animation-container {
+            position: relative;
+            margin: 4px white solid;
+            overflow: hidden;
+        }
+
+        #updatedImage {
+            position: absolute;
+            top: 0;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="animation-container">
+        <img id="updatedImg" src="" alt="">
+    </div>
+</body>
+    <script>
+        var socket = io()
+
+        socket.on('updatedPicture', (data)=>{
+            const dataUrl = `data:image/pngbase64,${data.data}`
+
+            const imgElement = document.getElementById('updatedImg')
+            imgElement.src = dataUrl
+            imgElement.style.top = '0'
+            imgElement.style.opacity = '1'
+
+            animateImage(imgElement)
+        })
+
+        function animateImage(element) {
+            const animDuration = 10
+            const animationDuration = animDuration * 1000 || 10000
+
+
+            setTimeout(() => {
+                element.style.transition = `top ${animationDuration / 1000}s ease-out, opacity ${animationDuration / 1000}s ease-out`
+                element.style.top = '-100%'
+                element.style.opacity = '0'
+
+                setTimeout(() => {
+                    element.style.transition = 'none'
+                    element.style.top = '0'
+                }, animationDuration)
+            }, 100)
+        }
+    </script>
+</html>

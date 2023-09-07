@@ -1,0 +1,40 @@
+{
+  "name": "phas-pics",
+  "version": "1.0.0",
+  "description": "Displays the latest picture taken in a HTML window usefull for phasmophobia streamers",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tencreator/phas-pics.git"
+  },
+  "keywords": [
+    "phas",
+    "phasmo",
+    "phasmophobia",
+    "streamers",
+    "phasmo",
+    "streamers",
+    "phas",
+    "streamers",
+    "phasmophobia",
+    "streamers"
+  ],
+  "author": "TenCreator",
+  "license": "The Unlicense",
+  "bugs": {
+    "url": "https://github.com/tencreator/phas-pics/issues"
+  },
+  "homepage": "https://github.com/tencreator/phas-pics#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "socket.io": "^4.7.2"
+  }
+}
