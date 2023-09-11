@@ -9,4 +9,4 @@
 4. Open a terminal and run `npm i`
 5. Run `node .` in the same terminal and your done!
 ## Dependencies
-- Node.js
+- [Node.js](https://nodejs.org/)
