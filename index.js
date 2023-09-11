@@ -35,6 +35,8 @@ function sendUpdatedPictureData(fileName, socket) {
           return
         }
 
+        // console.log(`Image ${data.toString('base64')}`)
+
         socket.emit('updatedPicture', { fileName, data: data.toString('base64') })
         lastModifiedTimestamps[fileName] = currentTimestamp
         console.log(`${fileName} data has been updated and sent via Socket.IO.`)

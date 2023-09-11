@@ -28,31 +28,25 @@
         var socket = io()
 
         socket.on('updatedPicture', (data)=>{
-            const dataUrl = `data:image/pngbase64,${data.data}`
-
             const imgElement = document.getElementById('updatedImg')
-            imgElement.src = dataUrl
+
+            // imgElement.src = dataUrl
+            imgElement.setAttribute('src', `data:image/png;base64,${data.data}`)
             imgElement.style.top = '0'
             imgElement.style.opacity = '1'
 
-            animateImage(imgElement)
-        })
-
-        function animateImage(element) {
-            const animDuration = 10
-            const animationDuration = animDuration * 1000 || 10000
-
+            const animationDuration = 5000
 
             setTimeout(() => {
-                element.style.transition = `top ${animationDuration / 1000}s ease-out, opacity ${animationDuration / 1000}s ease-out`
-                element.style.top = '-100%'
-                element.style.opacity = '0'
+                imgElement.style.transition = `top ${animationDuration / 1000}s ease-out, opacity ${animationDuration / 1000}s ease-out`
+                imgElement.style.top = '-100%'
+                imgElement.style.opacity = '0'
 
                 setTimeout(() => {
-                    element.style.transition = 'none'
-                    element.style.top = '0'
+                    imgElement.style.transition = 'none'
+                    imgElement.style.top = '0'
                 }, animationDuration)
             }, 100)
-        }
+        })
     </script>
 </html>
